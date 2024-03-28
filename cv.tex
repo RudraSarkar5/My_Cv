@@ -1,282 +1,273 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deedy - One Page Two Column Resume
-% LaTeX Template
-% Version 1.2 (16/9/2014)
-%
-% Original author:
-% Debarghya Das (http://debarghyadas.com)
-%
-% Original repository:
-% https://github.com/deedydas/Deedy-Resume
-%
-% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
-%
-% This template uses several fonts not included with Windows/Linux by
-% default. If you get compilation errors saying a font is missing, find the line
-% on which the font is used and either change it to a font included with your
-% operating system or comment the line out to use the default font.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% TODO:
-% 1. Integrate biber/bibtex for article citation under publications.
-% 2. Figure out a smoother way for the document to flow onto the next page.
-% 3. Add styling information for a "Projects/Hacks" section.
-% 4. Add location/address information
-% 5. Merge OpenFont and MacFonts as a single sty with options.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% CHANGELOG:
-% v1.1:
-% 1. Fixed several compilation bugs with \renewcommand
-% 2. Got Open-source fonts (Windows/Linux support)
-% 3. Added Last Updated
-% 4. Move Title styling into .sty
-% 5. Commented .sty file.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Known Issues:
-% 1. Overflows onto second page if any column's contents are more than the
-% vertical limit
-% 2. Hacky space on the first bullet point on the second column.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
 
+\documentclass[letterpaper,11pt]{article}
 
-\documentclass{deedy-resume-openfont}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
- 
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
 \pagestyle{fancy}
-\fancyhf{}
- 
-\begin{document}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     LAST UPDATED DATE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lastupdated
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     TITLE NAME
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\namesection{Rudra}{Sarkar}{
-  \urlstyle{same}
-  \href{mailto:rudrasarkar311@gmail.com}{rudrasarkar311@gmail.com} |
-  8967170220
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-12pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
 }
 
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN ONE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
 
-\begin{minipage}[t]{0.33\textwidth} 
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Rudra Sarkar} \\ \vspace{5pt}
+    \small 8967170220 $|$ \href{mailto:rudrasarkar311@gmail.com}{\underline{rudrasarkar311@gmail.com}}  $|$
+    \href{https://www.linkedin.com/in/rudra-sarkar-853385225}{\underline{linkedIn}} $|$
+    \href{https://github.com/RudraSarkar5}{\underline{github}}  $|$
+    \href{https://leetcode.com/Rudra_sarkar5}{\underline{leetcode}}
+\end{center}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     SKILLS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%-----------PROGRAMMING SKILLS-----------
 \section{Skills}
-
-
-\textbullet{} \textbf{Javascript} \textbullet{} \textbf{Java} \\   
-\textbullet{} \textbf{Node.js} \textbullet{} \textbf{React.js} \\
-\textbullet{} \textbf{HTML} \textbullet{} \textbf{CSS}  \\
-\textbullet{} \textbf{RESTful APIs} 
-\textbullet{} \textbf{Tailwind} \textbullet{} \textbf{Web-Socket} \\
-\textbullet{} \textbf{MySQL} \textbullet{} \textbf{MongoDB} \\
-\textbullet{} \textbf{Git} \textbullet{} \textbf{Chat-GPT} 
-
-\location{Familiar:}
- \textbullet{} \textbf{Android Development}
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     EDUCATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Education} 
-
-\subsection{Makkaut University}
-\descript{Bachelor in IT}
-
-\location{CGPA : 8.74 }
-\location{July 2024 }
-\sectionsep
-
-\subsection{PKDV}
-\descript{Higher Secondary}
-\location{Marks : 83.8 \% }
-\location{May 2019}
-
-\subsection{TSHS}
-\descript{Secondary}
-\location{Marks : 64.71 \% }
-\location{May 2017}
-
-
-
-
-\sectionsep
-
-
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     LINKS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Links} 
-
-\textbf{Github}:// \href{https://github.com/RudraSarkar5}{\bf RudraSarkar5} \\
-\textbf{Leetcode}://  \href{https://leetcode.com/Rudra_sarkar5/}{\bf rudra_sarkar5} \\
-\textbf{LinkedIn}://  \href{www.linkedin.com/in/rudra-sarkar-853385225}{\bf rudra-sarkar-853385225} \\
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     COURSEWORK
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Coursework}
-
-Full Stack Web Development in Udemy \\
-PW Skills Full Stack Web Development \\
-
-\sectionsep
+\begin{itemize}
+    \item \textbf{JavaScript} \textbullet{} \textbf{Java} \textbullet{} \textbf{React.js} \textbullet{} \textbf{Redux} \textbullet{} \textbf{Node.js} \textbullet{} \textbf{TypeScript} \textbullet{} \textbf{Tailwind CSS} \textbullet{} \textbf{WebSockets} \textbullet{} \textbf{MySQL} \textbullet{} \textbf{MongoDB} \textbullet{} \textbf{Git} \\
+   \textbf{Familiar:} \textbullet{} \textbf{React Native} \textbullet{} \textbf{PHP}
+\end{itemize}
 
 
 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN TWO
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\end{minipage} 
-\hfill
-\begin{minipage}[t]{0.66\textwidth} 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     PROJECTS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+% %-----------EXPERIENCE-----------
+% \section{Projects}
+%   \resumeSubHeadingListStart
+
+%     \resumeSubheading
+%       {Undergraduate Research Assistant}{June 2020 -- Present}
+%       {Texas A\&M University}{College Station, TX}
+%       \resumeItemListStart
+%         \resumeItem{Developed a REST API using FastAPI and PostgreSQL to store data from learning management systems}
+%         \resumeItem{Developed a full-stack web application using Flask, React, PostgreSQL and Docker to analyze GitHub data}
+%         \resumeItem{Explored ways to visualize GitHub collaboration in a classroom setting}
+%       \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+  %   \resumeSubheading
+  %     {Information Technology Support Specialist}{Sep. 2018 -- Present}
+  %     {Southwestern University}{Georgetown, TX}
+  %     \resumeItemListStart
+  %       \resumeItem{Communicate with managers to set up campus computers used on campus}
+  %       \resumeItem{Assess and troubleshoot computer problems brought by students, faculty and staff}
+  %       \resumeItem{Maintain upkeep of computers, classroom equipment, and 200 printers across campus}
+  %   \resumeItemListEnd
+
+  %   \resumeSubheading
+  %     {Artificial Intelligence Research Assistant}{May 2019 -- July 2019}
+  %     {Southwestern University}{Georgetown, TX}
+  %     \resumeItemListStart
+  %       \resumeItem{Explored methods to generate video game dungeons based off of \emph{The Legend of Zelda}}
+  %       \resumeItem{Developed a game in Java to test the generated dungeons}
+  %       \resumeItem{Contributed 50K+ lines of code to an established codebase via Git}
+  %       \resumeItem{Conducted  a human subject study to determine which video game dungeon generation technique is enjoyable}
+  %       \resumeItem{Wrote an 8-page paper and gave multiple presentations on-campus}
+  %       \resumeItem{Presented virtually to the World Conference on Computational Intelligence}
+  %     \resumeItemListEnd
+
+  % \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
 \section{Projects}
-\runsubsection{Trade-Hub  Web App} 
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Trade-Hub} $|$ \emph{React, NodeJS, MongoDB, Redux, Tailwind CSS, WebSocket}}{}
+          \resumeItemListStart
+            \resumeItem{Developed a full stack web application where users can seamlessly showcase their products. If a user finds interest in another's product, they can engage in real-time chats with the owner for potential purchases.}
+            \resumeItem{Frontend developed using \textbf{React.js} .  \textbf{Tailwind CSS} for  responsive design.}
+            \resumeItem{State managed using \textbf{Redux-Toolkit}.Also \textbf{Contex Api} used to manage chat state and notification facility.}
+            \resumeItem{Backend developed by \textbf{Node.js} and \textbf{Express.js}, featuring \textbf{REST API} for seamless communication. Utilizes \textbf{JWT authentication} for secure user access.}
+            \resumeItem{\textbf{MongoDB} used as the database for data storage and retrieval.}
+            \resumeItem{\textbf{WebSocket} implemented for real-time chat function to enhance the user communication experience..}
+            \item GitHub Repository : \href{https://github.com/RudraSarkar5/Trade-Hub.git}{\textcolor{blue}{ Trade-Hub}}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Social-Sphere} $|$ \emph{ React, TypeScript, NodeJS, MongoDB, Git-Hub}}{}
+          \resumeItemListStart
+           \resumeItem{As a backend developer in the project, I focused on developing RESTful APIs using Node.js and Express.js.}
 
+            \resumeItem{Contributed to the development of RESTful APIs for the social media web app, enabling functionalities such as  post management, likes, and followings.}
+            
+           
+            
+            \resumeItem{Used \textbf{mongoDB} database as storage and it's advance \textbf{Aggregation Pipeline} operation to communicate from server.}
+            \item GitHub Repository : \href{https://github.com/RudraSarkar5/SocialSphere/tree/backend_rudra}{\textcolor{blue}{ Social-Sphere}}
+           
+          \resumeItemListEnd
+          
+      \resumeProjectHeading
+          {\textbf{Restaurant Table Reservation System} $|$ \emph{ PHP, Html, Tailwind CSS, Javascript}}{}
+          \resumeItemListStart
+           \resumeItem{Developed a user-friendly web-site for the restaurant industry.In This platform restaurant owners showcase their restaurant. Customers, on the other hand, can conveniently browse listed restaurants, explore available tables, and book their preferred table for a specific date and time.}
 
+            \resumeItem{In this project used \textbf{PHP} to establlished a server and communicate with database.Also used \textbf{Tailwind CSS} for responsive design.}
+            
+            \resumeItem{Used \textbf{MySQL} database as storage.}
+            
+            \resumeItem{For Payment demo i used \textbf{Razorpay} and also used \textbf{PHPMailer} to make forget password functionality.}
+             \item GitHub Repository : \href{https://github.com/RudraSarkar5/Restaurant_Booking_System_In_Php}{\textcolor{blue}{ Restaurant Table Reservation System}}
+           
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Tic-Tac-Toe Game (vs Computer and multiplayer)} $|$ \emph{ Html, CSS, Javascript}}{}
+          \resumeItemListStart
+           \resumeItem{This game have two mode one is play against computer and other one is play against friend.}
 
+            \resumeItem{ It's fully developed by \textbf{HTML},\textbf{CSS}and \textbf{JavaScript}.}
+            
+            \item Play Game :
+            \href{ https://rudrasarkar5.github.io/tic-tac-toe/}{\textcolor{blue}{Tic-Tac-Toe Game}}
+            \item Git-Hub Repository :
+            \href{https://github.com/RudraSarkar5/tic-tac-toe.git}{\textcolor{blue}{tic-tac-toe git-hub link}}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
 
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\item Introducing a dynamic web application where users can seamlessly showcase their products. If a user finds interest in another's product, they can engage in real-time chats with the owner for potential purchases.
-\item Frontend developed using \textbf{React.js} .  \textbf{Tailwind CSS} for a sleek and responsive design.
-\item State managed using \textbf{Redux-Toolkit}.Also \textbf{Contex Api} used to manage chat state and notification facility.
-
- 
-\item Backend powered by \textbf{Node.js} and \textbf{Express.js}, featuring a robust \textbf{REST API} for seamless communication. Utilizes \textbf{JWT authentication} for secure user access.
-
-
-
-\item \textbf{MongoDB} used as the database for data storage and retrieval.
-
-\item \textbf{WebSocket} implemented for real-time chat function to enhance the user experience.
-\usepackage{hyperref}
-
-\item GitHub Repository : \href{https://github.com/RudraSarkar5/Trade-Hub.git}{\textcolor{blue}{ Trade-Hub}}
-
-
-\end{tightemize}
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Makkaut University}{}
+      {Bachelor in IT , CGPA:8.74}{2024 graduate}
+    \resumeSubheading
+      {PKDV}{}
+      {Higher Secondary , marks : 83.8\%}{}
+  \resumeSubHeadingListEnd
+  
+%-----------COURSEWORK-----------
+  \section{Coursework}
+    \resumeItemListStart
+        \resumeItem {Full Stack Web Development in Udemy.} \\
+        \resumeItem {PW Skills Full Stack Web Development.} \\
+    \resumeItemListEnd
 \sectionsep
-
-\runsubsection{Restaurant Table Reservation System}
-
-\begin{tightemize}
-\item Introducing a user-friendly web-site for the restaurant industry. This platform empowers restaurant owners to effortlessly showcase their establishments, customize tables and  menus with prices, and enhance the overall dining experience. Customers, on the other hand, can conveniently browse listed restaurants, explore available tables, and book their preferred table for a specific date and time.
-
-\item Entire Website developed using  \textbf{PHP} and also used \textbf{Tailwind} for responsive design.
-\item  For Payment demo i used \textbf{Razorpay} and also used \textbf{PHPMailer} to make forget password functionality.
-\item GitHub Repository: \href{https://github.com/RudraSarkar5/Restaurant_Booking_System_In_Php}{\textcolor{blue}{Restaurant Table Booking System on GitHub}}
-
-\end{tightemize}
-\sectionsep
-
-
-\runsubsection{Tic-Tac-Toe Game (vs Computer and multiplayer)}
-
-\begin{tightemize}
-\item This game have two mode one is play against computer and other one is play against friend.
-\item It's fully developed by \textbf{HTML},\textbf{CSS}and \textbf{JavaScript}.
-
-\item Game Link :
-\href{ https://rudrasarkar5.github.io/tic-tac-toe/}{\textcolor{blue}{Tic-Tac-Toe Game}}
-\item Git-Hub Repository :
-\href{https://github.com/RudraSarkar5/tic-tac-toe.git}{\textcolor{blue}{tic-tac-toe git-hub link}}
-
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Sudoku Solving }
-
-\begin{tightemize}
-\item It's a fun game that have unlimited Sudoku pattern .
-\item this is developed by pure \textbf{HTML},\textbf{CSS}and \textbf{JavaScript}.
-
-
-\item Git-Hub Repository :
-\href{https://github.com/RudraSarkar5/Sudoku}{\textcolor{blue}{sudoku git-hub link}}
-\item Game Link :
-\href{https://rudrasarkar5.github.io/Sudoku/}{\textcolor{blue}{Sudoku Solving}}
-
-\end{tightemize}
-\sectionsep
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     About Me
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{About Me} 
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-
-\item Residence : Nabadwip,WestBengal.
-\item  Language : Bengali,English,Hindi.
-\item  Interest : Cricket , Exploring New technology.
-
-
-\end{tightemize}
+%-----------ABOUTME-----------
+ \section{About Me} 
+    \resumeItemListStart
+        \resumeItem {Residence : Nabadwip, WestBengal.} \\
+        \resumeItem {Language : Bengali, English, Hindi.} \\
+        \resumeItem {Interest : New Technology, Solve any kind of Problem, Cricket, Video Game.} \\
+    \resumeItemListEnd
 \sectionsep
 
 
+%
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     PUBLICATIONS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\renewcommand\refname{\vskip -1.5em} % Couldn't get this working from the .cls file
-
-\nocite{*}
-
-\end{minipage} 
-\end{document}  \documentclass[]{article}
+%-------------------------------------------
+\end{document}
